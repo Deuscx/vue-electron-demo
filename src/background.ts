@@ -72,6 +72,7 @@ ipcMain.handle(EIPCEventName.GET_LOGIN_ITEMS, (event, arg) => {
   return app.getLoginItemSettings({}).openAtLogin;
 });
 
-ipcMain.handle(EIPCEventName.SET_LOGIN_ITEMS, (event, openAtLogin: boolean) => {
+ipcMain.on(EIPCEventName.SET_LOGIN_ITEMS, (event, openAtLogin: boolean) => {
+  console.debug("set login items", openAtLogin);
   app.setLoginItemSettings({ openAtLogin });
 });
